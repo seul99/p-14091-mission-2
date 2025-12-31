@@ -1,4 +1,4 @@
-package com.mysite.sbb.user;
+package com.mysite.sbb.question;
 
 import com.mysite.sbb.answer.Answer;
 import jakarta.persistence.*;
