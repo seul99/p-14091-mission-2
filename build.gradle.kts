@@ -3,6 +3,7 @@ plugins {
     id("org.springframework.boot") version "3.5.3"
     id("io.spring.dependency-management") version "1.1.7"
 }
+val springAiVersion by extra("1.1.2")
 
 group = "com"
 version = "0.0.1-SNAPSHOT"
@@ -34,6 +35,7 @@ dependencies {
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
+    implementation("org.commonmark:commonmark:0.21.0")
     testImplementation("org.springframework.security:spring-security-test")
     runtimeOnly("com.h2database:h2")
 
@@ -46,6 +48,11 @@ dependencies {
 
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+}
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.ai:spring-ai-bom:$springAiVersion")
+    }
 }
 
 tasks.withType<Test> {
